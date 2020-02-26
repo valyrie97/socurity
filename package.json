@@ -1,0 +1,24 @@
+{
+  "name": "socurity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcus13345/socurity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcus13345/socurity/issues"
+  },
+  "homepage": "https://github.com/marcus13345/socurity#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "node-rsa": "^1.0.7"
+  }
+}
