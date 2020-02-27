@@ -3,7 +3,6 @@
 	"name": "Socurity",
 	"description": "SOC-URITY",
 	"version": "1.0",
-
 	"icons": {
 		"16": "icons/padlock-16.png",
 		"24": "icons/padlock-24.png",
@@ -12,11 +11,15 @@
 		"128": "icons/padlock-128.png",
 		"256": "icons/padlock-256.png",
 		"512": "icons/padlock-512.png"
-	  },
-
+	},
 	"browser_action":{
 		"default_icon": "icons/padlock-32.png",
 		"default_popup": "popup.html"
-	}
-
+	},
+	"content_scripts": [
+		{
+			"matches": [ "*://*/*" ],
+			"js": [ "socurity.js" ]
+		}
+	]
 }

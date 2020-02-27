@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<style>
+		html, body {
+			background: #222;
+			color: white;
+		}
+		</style>
+	</head>
+	<body>
+		<script>
+
+window.addEventListener('message', (event) => {
+	if (event.source != window) return;
+	if (!event.data.source) return;
+	if (event.data.source !== 'socurity') return;
+	if (event.data.event !== 'loaded') return;
+
+	console.log(`socurity ${event.data.version} Loaded!`);
+	createAccount();
+})
+
+function createAccount() {
+	
+}
+
+		</script>
+	</body>
+</html>
