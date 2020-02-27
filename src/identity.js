@@ -12,21 +12,22 @@ async function createIdentity(name) {
 	await new Promise(res => {
 		identities.insert({
 			name,
-			type: 'public',
-			key: pair.exportKey('pkcs1-public-pem')
-		}, res);
-	})
-	await new Promise(res => {
-		identities.insert({
-			name,
-			type: 'private',
-			key: pair.exportKey('pkcs1-private-pem')
+			public: pair.exportKey('pkcs1-public-pem'),
+			private: pair.exportKey('pkcs1-private-pem')
 		}, res);
 	});
 }
 
-async function getIdentity() {
-	
+async function getIdentity(uid) {
+	return await new Promise((res, rej) => {
+		identities.findOne({
+			_id: uid
+		}, (err, doc) => {
+			if(err || !doc) return rej(err);
+			delete doc.private;
+			res(doc);
+		})
+	});
 }
 
 async function getAllIdentities() {

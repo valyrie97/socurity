@@ -9,9 +9,10 @@ router.get('/', async (req, res) => {
 	});
 });
 
-router.get('/:guid', (req, res) => {
-	console.log(req.param.guid);
-	res.json({});
+router.get('/:uid', async (req, res) => {
+	const uid = req.params.uid;
+	const _return = await identity.get(uid);
+	res.json(_return);
 })
 
 module.exports = router;
