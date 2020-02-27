@@ -34,7 +34,8 @@ async function getAllIdentities() {
 		identities.find({}, (err, docs) => {
 			const names = docs.reduce((acc, obj) => {
 				if(obj._id in acc) return acc;
-				else acc[obj._id] = obj.name;
+				acc[obj._id] = obj.name;
+				return acc;
 			}, {});
 			res(names);
 		})
@@ -46,4 +47,10 @@ module.exports = {
 	get: Object.assign(getIdentity, {
 		all: getAllIdentities
 	})
-}
+};
+
+(async function() {
+	if(Object.keys(await getAllIdentities()).length === 0) {
+		createIdentity('Default');
+	}
+})();
