@@ -11,5 +11,7 @@ api.get('/', (req, res) => {
 })
 
 api.use('/identity', require('./identity.js'))
+api.use('/encrypt', require('./encrypt.js'))
+api.use('/decrypt', require('./decrypt.js'))
 
 module.exports = api;

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/marcus13345/socurity#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "node-rsa": "^1.0.7"
